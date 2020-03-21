@@ -1,0 +1,30 @@
+.dashboard-container {
+	display: flex;
+	justify-content: center;
+
+	.tiles {
+		display: grid;
+		justify-content: center;
+		align-items: center;
+
+		.tile {
+			font-size: 30px;
+			display: grid;
+			justify-items: center;
+			align-content: center;
+			min-width: 800px;
+			min-height: 100px;
+			margin-bottom: 10px;
+		}
+	}
+}
+
+.green {
+	color: #00c853;
+}
+.yellow {
+	color: #fbc02d;
+}
+.red {
+	color: #e53935;
+}
