@@ -19,16 +19,19 @@ const getConfig = (data) => ({
 		type: 'spline'
 	},
 	yAxis: {
-		title: { text: 'Total Count' }
+		title: { text: 'Total Count' },
+		opposite: false
+	},
+	xAxis: {
+		categories: data.xAxis,
+		type: 'datetime',
+		labels: {
+			format: '{value:%e-%b}'
+		}
 	},
 
 	rangeSelector: {
 		inputEnabled: false,
-		inputDateFormat: '%d-%m-%Y',
-		inputDateParser: function(value) {
-			value = value.split('-');
-			return Date.UTC(parseInt(value[2]), parseInt(value[1]) - 1, parseInt(value[0]));
-		},
 		buttonSpacing: 10,
 		buttonTheme: {
 			// styles for the buttons
@@ -78,9 +81,6 @@ const getConfig = (data) => ({
 		]
 	},
 
-	xAxis: {
-		categories: data.xAxis
-	},
 	series: [ data.confirmedSeries, data.deadSeries, data.recoveredSeries ],
 	credits: {
 		enabled: false
