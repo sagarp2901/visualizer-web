@@ -23,12 +23,12 @@ const getConfig = (data) => ({
 	},
 	plotOptions: {
 		pie: {
-			size: '100%',
+			size: 350,
 			allowPointSelect: true,
 			dataLabels: {
 				enabled: true,
 				format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-				distance: -10
+				distance: -40
 			},
 			startAngle: -90,
 			endAngle: 90,
@@ -98,6 +98,7 @@ export default class Dashboard extends React.Component {
 				count[1].value = formattedRecovered;
 				count[2].value = formattedDead;
 				this.setState({ count });
+				console.log(count);
 			}
 		} catch (e) {
 			console.warn(e);
@@ -110,14 +111,19 @@ export default class Dashboard extends React.Component {
 
 		return (
 			<div className='dashboard-container'>
-				<div className='pie-chart'>
-					<HighchartsReact highcharts={Highcharts} options={chartConfig} />
-				</div>
 				<div className='tiles'>
+					<Card className='tile'>
+						<HighchartsReact
+							containerProps={{ style: { minWidth: '375px', width: '90vw' } }}
+							highcharts={Highcharts}
+							options={chartConfig}
+						/>
+					</Card>
+
 					{this.state.count.map((item, index) => (
 						<Card key={index} className='tile'>
 							<div>{item.name}</div>
-							<div className={item.class}>{item.value}</div>
+							<div className={item.class}>{item.value || 'Data is updating...'}</div>
 						</Card>
 					))}
 				</div>
