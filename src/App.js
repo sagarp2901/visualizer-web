@@ -10,6 +10,7 @@ import Box from '@material-ui/core/Box';
 import Bars from './components/bars/bars';
 import Dashboard from './components/dashboard/dashboard';
 import MapsComponent from './components/map/map';
+import TimeSeries from './components/timeSeries/timeSeries';
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -66,6 +67,7 @@ export default function App() {
 					<Tab label='Dashboard' {...a11yProps(0)} />
 					<Tab label='Heat Map' {...a11yProps(1)} />
 					<Tab label='Top 10' {...a11yProps(2)} />
+					<Tab label='Time Series' {...a11yProps(3)} />
 				</Tabs>
 			</AppBar>
 			<SwipeableViews
@@ -80,6 +82,9 @@ export default function App() {
 				</TabPanel>
 				<TabPanel value={value} index={2} dir={theme.direction}>
 					<Bars />
+				</TabPanel>
+				<TabPanel value={value} index={3} dir={theme.direction}>
+					<TimeSeries />
 				</TabPanel>
 			</SwipeableViews>
 		</div>
