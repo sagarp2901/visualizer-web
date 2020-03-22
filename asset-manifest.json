@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/covid-visualizer/static/css/main.30d6997f.chunk.css",
-    "main.js": "/covid-visualizer/static/js/main.8931dbad.chunk.js",
-    "main.js.map": "/covid-visualizer/static/js/main.8931dbad.chunk.js.map",
-    "runtime-main.js": "/covid-visualizer/static/js/runtime-main.f3871de4.js",
-    "runtime-main.js.map": "/covid-visualizer/static/js/runtime-main.f3871de4.js.map",
-    "static/css/2.ee241de9.chunk.css": "/covid-visualizer/static/css/2.ee241de9.chunk.css",
-    "static/js/2.77ce6351.chunk.js": "/covid-visualizer/static/js/2.77ce6351.chunk.js",
-    "static/js/2.77ce6351.chunk.js.map": "/covid-visualizer/static/js/2.77ce6351.chunk.js.map",
-    "index.html": "/covid-visualizer/index.html",
-    "precache-manifest.c784f5bf188bb4d7ba26f0534ce56d67.js": "/covid-visualizer/precache-manifest.c784f5bf188bb4d7ba26f0534ce56d67.js",
-    "service-worker.js": "/covid-visualizer/service-worker.js",
-    "static/css/2.ee241de9.chunk.css.map": "/covid-visualizer/static/css/2.ee241de9.chunk.css.map",
-    "static/css/main.30d6997f.chunk.css.map": "/covid-visualizer/static/css/main.30d6997f.chunk.css.map",
-    "static/js/2.77ce6351.chunk.js.LICENSE.txt": "/covid-visualizer/static/js/2.77ce6351.chunk.js.LICENSE.txt"
+    "main.css": "/visualizer-web/static/css/main.30d6997f.chunk.css",
+    "main.js": "/visualizer-web/static/js/main.d58607c8.chunk.js",
+    "main.js.map": "/visualizer-web/static/js/main.d58607c8.chunk.js.map",
+    "runtime-main.js": "/visualizer-web/static/js/runtime-main.baf69319.js",
+    "runtime-main.js.map": "/visualizer-web/static/js/runtime-main.baf69319.js.map",
+    "static/css/2.ee241de9.chunk.css": "/visualizer-web/static/css/2.ee241de9.chunk.css",
+    "static/js/2.77ce6351.chunk.js": "/visualizer-web/static/js/2.77ce6351.chunk.js",
+    "static/js/2.77ce6351.chunk.js.map": "/visualizer-web/static/js/2.77ce6351.chunk.js.map",
+    "index.html": "/visualizer-web/index.html",
+    "precache-manifest.e54d8be5f6c508af924bd0d965652df2.js": "/visualizer-web/precache-manifest.e54d8be5f6c508af924bd0d965652df2.js",
+    "service-worker.js": "/visualizer-web/service-worker.js",
+    "static/css/2.ee241de9.chunk.css.map": "/visualizer-web/static/css/2.ee241de9.chunk.css.map",
+    "static/css/main.30d6997f.chunk.css.map": "/visualizer-web/static/css/main.30d6997f.chunk.css.map",
+    "static/js/2.77ce6351.chunk.js.LICENSE.txt": "/visualizer-web/static/js/2.77ce6351.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.f3871de4.js",
+    "static/js/runtime-main.baf69319.js",
     "static/css/2.ee241de9.chunk.css",
     "static/js/2.77ce6351.chunk.js",
     "static/css/main.30d6997f.chunk.css",
-    "static/js/main.8931dbad.chunk.js"
+    "static/js/main.d58607c8.chunk.js"
   ]
 }
