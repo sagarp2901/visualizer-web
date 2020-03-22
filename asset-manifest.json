@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/sagarp2901/covid-visualizer/static/css/main.30d6997f.chunk.css",
+    "main.js": "/sagarp2901/covid-visualizer/static/js/main.53b25a6c.chunk.js",
+    "main.js.map": "/sagarp2901/covid-visualizer/static/js/main.53b25a6c.chunk.js.map",
+    "runtime-main.js": "/sagarp2901/covid-visualizer/static/js/runtime-main.cd84c25b.js",
+    "runtime-main.js.map": "/sagarp2901/covid-visualizer/static/js/runtime-main.cd84c25b.js.map",
+    "static/css/2.ee241de9.chunk.css": "/sagarp2901/covid-visualizer/static/css/2.ee241de9.chunk.css",
+    "static/js/2.77ce6351.chunk.js": "/sagarp2901/covid-visualizer/static/js/2.77ce6351.chunk.js",
+    "static/js/2.77ce6351.chunk.js.map": "/sagarp2901/covid-visualizer/static/js/2.77ce6351.chunk.js.map",
+    "index.html": "/sagarp2901/covid-visualizer/index.html",
+    "precache-manifest.694ec83978ced05a4a2794f3b5d7f9ae.js": "/sagarp2901/covid-visualizer/precache-manifest.694ec83978ced05a4a2794f3b5d7f9ae.js",
+    "service-worker.js": "/sagarp2901/covid-visualizer/service-worker.js",
+    "static/css/2.ee241de9.chunk.css.map": "/sagarp2901/covid-visualizer/static/css/2.ee241de9.chunk.css.map",
+    "static/css/main.30d6997f.chunk.css.map": "/sagarp2901/covid-visualizer/static/css/main.30d6997f.chunk.css.map",
+    "static/js/2.77ce6351.chunk.js.LICENSE.txt": "/sagarp2901/covid-visualizer/static/js/2.77ce6351.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cd84c25b.js",
+    "static/css/2.ee241de9.chunk.css",
+    "static/js/2.77ce6351.chunk.js",
+    "static/css/main.30d6997f.chunk.css",
+    "static/js/main.53b25a6c.chunk.js"
+  ]
+}
