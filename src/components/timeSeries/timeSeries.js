@@ -27,6 +27,10 @@ const getConfig = (data) => ({
 	rangeSelector: {
 		inputEnabled: false,
 		inputDateFormat: '%d-%m-%Y',
+		inputDateParser: function(value) {
+			value = value.split('-');
+			return Date.UTC(parseInt(value[2]), parseInt(value[1]) - 1, parseInt(value[0]));
+		},
 		buttonSpacing: 10,
 		buttonTheme: {
 			// styles for the buttons
@@ -185,7 +189,7 @@ export default class TimeSeries extends React.Component {
 						placeholder='Select an option'
 					/>
 				</div>
-				<Card className='tile chart'>
+				<Card className='chart'>
 					<HighchartsReact
 						constructorType={'stockChart'}
 						containerProps={{ style: { minWidth: '375px', width: '90vw', height: '80vh' } }}

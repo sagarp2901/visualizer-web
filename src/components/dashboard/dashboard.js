@@ -98,7 +98,6 @@ export default class Dashboard extends React.Component {
 				count[1].value = formattedRecovered;
 				count[2].value = formattedDead;
 				this.setState({ count });
-				console.log(count);
 			}
 		} catch (e) {
 			console.warn(e);
