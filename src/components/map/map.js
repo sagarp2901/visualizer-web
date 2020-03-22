@@ -40,6 +40,16 @@ export default class MapsComponent extends React.PureComponent {
 		};
 	}
 
+	/* onClick = (e) => {
+		this.setState({
+			showInfoWindow: !this.state.showInfoWindow
+		});
+		setTimeout(() => {
+			this.setState({
+				showInfoWindow: !this.state.showInfoWindow
+			});
+		}, 200);
+	};
 	handleMouseOver = (e) => {
 		this.setState({
 			showInfoWindow: true
@@ -49,7 +59,7 @@ export default class MapsComponent extends React.PureComponent {
 		this.setState({
 			showInfoWindow: false
 		});
-	};
+	}; */
 
 	async componentDidMount() {
 		try {
@@ -78,6 +88,16 @@ class CustomMarker extends Component {
 	state = {
 		showInfoWindow: false
 	};
+	onClick = (e) => {
+		this.setState({
+			showInfoWindow: !this.state.showInfoWindow
+		});
+		setTimeout(() => {
+			this.setState({
+				showInfoWindow: !this.state.showInfoWindow
+			});
+		}, 200);
+	};
 	handleMouseOver = (e) => {
 		this.setState({
 			showInfoWindow: true
@@ -94,6 +114,7 @@ class CustomMarker extends Component {
 		return (
 			<Marker
 				position={{ lat: marker.coordinates.latitude, lng: marker.coordinates.longitude }}
+				onClick={this.onClick}
 				onMouseOver={this.handleMouseOver}
 				onMouseOut={this.handleMouseExit}>
 				{showInfoWindow && (
