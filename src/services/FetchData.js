@@ -1,4 +1,3 @@
-const BASE_URL = '';
 export const getCases = (type) => {
 	const URLS = {
 		CONFIRMED:
@@ -8,24 +7,16 @@ export const getCases = (type) => {
 		RECOVERED:
 			'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Recovered.csv'
 	};
-	return fetch(URLS[type], {
-		headers: {
-			Accept: 'application/vnd.openxmlformatsofficedocument.spreadsheetml.sheet'
-		}
-	}).then((res) => res.text());
+	return fetch(URLS[type]).then((res) => res.text());
 };
 
 export const getDailyReport = (useTodayDate) => {
 	const date = useTodayDate ? getTodayDate() : getYesterdayDate();
 
 	const url = `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/${date}.csv`;
-	return fetch(url, {
-		headers: {
-			Accept: 'application/vnd.openxmlformatsofficedocument.spreadsheetml.sheet'
-		}
-	}).then((res) => {
+	return fetch(url).then((res) => {
 		// If today's data exist then 200 will be returned
-		return res.status == 200 ? res.text() : res.status;
+		return res.status === 200 ? res.text() : res.status;
 	});
 };
 
