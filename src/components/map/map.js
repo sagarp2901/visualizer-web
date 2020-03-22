@@ -98,10 +98,10 @@ class CustomMarker extends Component {
 				onMouseOut={this.handleMouseExit}>
 				{showInfoWindow && (
 					<InfoWindow>
-						<div>
-							<div>Confirmed:{marker.confirmed}</div>
-							<div>Recovered:{marker.recovered}</div>
-							<div>Deceased:{marker.dead}</div>
+						<div className='markerContainer'>
+							<div className='yellow'>Confirmed: {marker.confirmed}</div>
+							<div className='green'>Recovered: {marker.recovered}</div>
+							<div className='red'>Deceased: {marker.dead}</div>
 						</div>
 					</InfoWindow>
 				)}

@@ -1,3 +1,27 @@
 .gm-ui-hover-effect {
 	display: none !important;
 }
+
+.gm-style .gm-style-iw-c,
+.gm-style .gm-style-iw-d::-webkit-scrollbar-track,
+.gm-style .gm-style-iw-d::-webkit-scrollbar-track-piece {
+	background-color: #263238;
+}
+.gm-style .gm-style-iw-t::after {
+	background: linear-gradient(45deg, #263238 50%, #263238 51%, #263238 100%);
+}
+
+.markerContainer {
+	.green {
+		color: #00c853;
+		font-weight: bold;
+	}
+	.yellow {
+		color: #fbc02d;
+		font-weight: bold;
+	}
+	.red {
+		color: #e53935;
+		font-weight: bold;
+	}
+}
