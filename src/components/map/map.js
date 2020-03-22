@@ -1,39 +1,58 @@
-import React from 'react';
-import GoogleMapReact from 'google-map-react';
+import React, { Component } from 'react';
 import { getDailyReport, formatDailyMarkers } from '../../services/FetchData';
 import { readString } from 'react-papaparse';
+import './map.scss';
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
-const INITIAL_REGION = {
-	latitude: 43.6372866,
-	longitude: -79.4036979,
-	latitudeDelta: 8.5,
-	longitudeDelta: 8.5
-};
-export default class MapContainer extends React.Component {
-	static defaultProps = {
-		center: {
-			lat: 59.95,
-			lng: 30.33
-		},
-		zoom: 11
-	};
+const { compose, withProps, withHandlers } = require('recompose');
+const { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } = require('react-google-maps');
+const { MarkerClusterer } = require('react-google-maps/lib/components/addons/MarkerClusterer');
 
+const MapWithAMarkerClusterer = compose(
+	withProps({
+		googleMapURL:
+			'https://maps.googleapis.com/maps/api/js?key=AIzaSyDEDlsTIDM12nZXq9_jrUZOJroDTeL0YS0&v=3.exp&libraries=geometry,drawing,places',
+		loadingElement: <div style={{ height: `100%` }} />,
+		containerElement: <div style={{ height: '100vh' }} />,
+		mapElement: <div style={{ height: `100%` }} />
+	}),
+	withHandlers({
+		onMarkerClustererClick: () => (markerClusterer) => {
+			const clickedMarkers = markerClusterer.getMarkers();
+			console.log(`Current clicked markers length: ${clickedMarkers.length}`);
+			console.log(clickedMarkers);
+		}
+	}),
+	withScriptjs,
+	withGoogleMap
+)((props) => (
+	<GoogleMap defaultZoom={3} defaultCenter={{ lat: 25.0391667, lng: 121.525 }}>
+		<MarkerClusterer onClick={props.onMarkerClustererClick} averageCenter enableRetinaIcons gridSize={60}>
+			{props.markers.map((marker, index) => <CustomMarker key={index} marker={marker} />)}
+		</MarkerClusterer>
+	</GoogleMap>
+));
+
+export default class MapsComponent extends React.PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = {
-			markersConfirmed: [],
-			markersDead: [],
-			markersRecovered: [],
-			markers: [],
-			initialRegion: INITIAL_REGION
+			markers: []
 		};
-		//this.setCurrentLocation = this.setCurrentLocation.bind(this);
 	}
+
+	handleMouseOver = (e) => {
+		this.setState({
+			showInfoWindow: true
+		});
+	};
+	handleMouseExit = (e) => {
+		this.setState({
+			showInfoWindow: false
+		});
+	};
 
 	async componentDidMount() {
 		try {
-			//this.setCurrentLocation();
 			// Get map data
 			const jsonResponse = await getDailyReport(false);
 			const dataJson = await readString(jsonResponse, { header: true });
@@ -48,33 +67,45 @@ export default class MapContainer extends React.Component {
 
 	render() {
 		return (
-			// Important! Always set the container height explicitly
-			<div style={{ height: '100vh', width: '100%' }}>
-				<GoogleMapReact
-					bootstrapURLKeys={{ key: 'AIzaSyDEDlsTIDM12nZXq9_jrUZOJroDTeL0YS0' }}
-					defaultCenter={this.props.center}
-					defaultZoom={this.props.zoom}>
-					{this.state.markers.map((marker, index) => (
-						<AnyReactComponent
-							key={index}
-							lat={marker.coordinates.latitude}
-							lng={marker.coordinates.longitude}
-							text='My Marker'
-						/>
-					))}
-				</GoogleMapReact>
+			<div style={{ width: '100%', height: '100vh' }}>
+				<MapWithAMarkerClusterer markers={this.state.markers} />
 			</div>
 		);
 	}
 }
 
-const styles = {
-	mapContainer: {
-		width: '100%',
-		height: '100%'
-	},
-	map: {
-		width: '100%',
-		height: '100%'
+class CustomMarker extends Component {
+	state = {
+		showInfoWindow: false
+	};
+	handleMouseOver = (e) => {
+		this.setState({
+			showInfoWindow: true
+		});
+	};
+	handleMouseExit = (e) => {
+		this.setState({
+			showInfoWindow: false
+		});
+	};
+	render() {
+		const { showInfoWindow } = this.state;
+		const { marker } = this.props;
+		return (
+			<Marker
+				position={{ lat: marker.coordinates.latitude, lng: marker.coordinates.longitude }}
+				onMouseOver={this.handleMouseOver}
+				onMouseOut={this.handleMouseExit}>
+				{showInfoWindow && (
+					<InfoWindow>
+						<div>
+							<div>Confirmed:{marker.confirmed}</div>
+							<div>Recovered:{marker.recovered}</div>
+							<div>Deceased:{marker.dead}</div>
+						</div>
+					</InfoWindow>
+				)}
+			</Marker>
+		);
 	}
-};
+}
