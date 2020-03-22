@@ -21,9 +21,7 @@ const getConfig = (data) => ({
 	yAxis: {
 		title: { text: 'Total Count' }
 	},
-	navigator: {
-		enabled: false
-	},
+
 	rangeSelector: {
 		inputEnabled: false,
 		inputDateFormat: '%d-%m-%Y',
