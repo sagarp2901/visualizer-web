@@ -8,6 +8,7 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Dashboard from './components/dashboard/dashboard';
+import MapContainer from './components/map/map';
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -62,7 +63,7 @@ export default function App() {
 			<AppBar position='static' color='default'>
 				<Tabs centered value={value} onChange={handleChange} indicatorColor='primary' textColor='primary'>
 					<Tab label='Dashboard' {...a11yProps(0)} />
-					<Tab label='Item Two' {...a11yProps(1)} />
+					<Tab label='Heat Map' {...a11yProps(1)} />
 					<Tab label='Item Three' {...a11yProps(2)} />
 				</Tabs>
 			</AppBar>
@@ -74,7 +75,7 @@ export default function App() {
 					<Dashboard />
 				</TabPanel>
 				<TabPanel value={value} index={1} dir={theme.direction}>
-					Item Two
+					<MapContainer />
 				</TabPanel>
 				<TabPanel value={value} index={2} dir={theme.direction}>
 					Item Three
