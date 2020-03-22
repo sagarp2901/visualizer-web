@@ -1,14 +1,16 @@
 import React from 'react';
 import Highcharts from 'highcharts/highstock';
 import HSIndicators from 'highcharts/indicators/indicators.js';
-
-//import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import { formatChartData, getCases, formatDropdownCountries } from '../../services/FetchData';
 import { readString } from 'react-papaparse';
+import Card from '@material-ui/core/Card';
+import './timeseries.scss';
+
 HSIndicators(Highcharts);
+
 const getConfig = (data) => ({
 	title: {
 		text: 'Confirmed/Recovered/Deceased By Country'
@@ -24,8 +26,7 @@ const getConfig = (data) => ({
 	},
 	rangeSelector: {
 		inputEnabled: false,
-		inputDateFormat: '%Y-%d-%m',
-		inputEditDateFormat: '%Y-%d-%m',
+		inputDateFormat: '%d-%m-%Y',
 		buttonSpacing: 10,
 		buttonTheme: {
 			// styles for the buttons
@@ -92,7 +93,7 @@ export default class TimeSeries extends React.Component {
 		super(props);
 		this.allowChartUpdate = true;
 		this.state = {
-			country: '',
+			country: { value: 'China', label: 'China' },
 			countries: [],
 			confirmedSeries: [],
 			deadSeries: [],
@@ -175,19 +176,23 @@ export default class TimeSeries extends React.Component {
 		const { confirmedSeries, recoveredSeries, deadSeries, xAxis, country, countries } = this.state;
 		const chartConfig = getConfig({ confirmedSeries, recoveredSeries, deadSeries, xAxis });
 		return (
-			<div>
-				<Dropdown
-					options={countries}
-					onChange={this.updateCountry}
-					value={country}
-					placeholder='Select an option'
-				/>
-				<HighchartsReact
-					constructorType={'stockChart'}
-					containerProps={{ style: { minWidth: '375px', width: '90vw' } }}
-					highcharts={Highcharts}
-					options={chartConfig}
-				/>
+			<div className='tiles'>
+				<div className='tile'>
+					<Dropdown
+						options={countries}
+						onChange={this.updateCountry}
+						value={country}
+						placeholder='Select an option'
+					/>
+				</div>
+				<Card className='tile chart'>
+					<HighchartsReact
+						constructorType={'stockChart'}
+						containerProps={{ style: { minWidth: '375px', width: '90vw', height: '80vh' } }}
+						highcharts={Highcharts}
+						options={chartConfig}
+					/>
+				</Card>
 			</div>
 		);
 	}
