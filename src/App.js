@@ -7,6 +7,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import Bars from './components/bars/bars';
 import Dashboard from './components/dashboard/dashboard';
 import MapsComponent from './components/map/map';
 
@@ -64,7 +65,7 @@ export default function App() {
 				<Tabs centered value={value} onChange={handleChange} indicatorColor='primary' textColor='primary'>
 					<Tab label='Dashboard' {...a11yProps(0)} />
 					<Tab label='Heat Map' {...a11yProps(1)} />
-					<Tab label='Item Three' {...a11yProps(2)} />
+					<Tab label='Top 10' {...a11yProps(2)} />
 				</Tabs>
 			</AppBar>
 			<SwipeableViews
@@ -78,7 +79,7 @@ export default function App() {
 					<MapsComponent />
 				</TabPanel>
 				<TabPanel value={value} index={2} dir={theme.direction}>
-					Item Three
+					<Bars />
 				</TabPanel>
 			</SwipeableViews>
 		</div>
