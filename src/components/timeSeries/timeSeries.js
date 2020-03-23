@@ -182,12 +182,20 @@ export default class TimeSeries extends React.Component {
 		return (
 			<div className='tiles'>
 				<div className='tile'>
-					<Dropdown
-						options={countries}
-						onChange={this.updateCountry}
-						value={country}
-						placeholder='Select an option'
-					/>
+					<div className='card-drop'>
+						<p>
+							Select a country from the dropdown below to view a time series of confirmed, recovered and
+							deceased cases on a daily basis.<br /> Time series window can be updated on the chart using
+							the zoom buttons and the sliders below the chart.
+						</p>
+
+						<Dropdown
+							options={countries}
+							onChange={this.updateCountry}
+							value={country}
+							placeholder='Select an option'
+						/>
+					</div>
 				</div>
 				<Card className='chart'>
 					<HighchartsReact

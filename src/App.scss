@@ -12,6 +12,10 @@
 	margin-right: 10px;
 }
 
+.padd {
+	padding-top: 20px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
 	.App-logo {
 		animation: App-logo-spin infinite 20s linear;
@@ -40,4 +44,11 @@
 	to {
 		transform: rotate(360deg);
 	}
+}
+
+.disclaimer {
+	padding: 10px;
+}
+hr {
+	margin-top: 20px;
 }

@@ -12,7 +12,7 @@ import Bars from './components/bars/bars';
 import Dashboard from './components/dashboard/dashboard';
 import MapsComponent from './components/map/map';
 import TimeSeries from './components/timeSeries/timeSeries';
-import './App.css';
+import './App.scss';
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -79,18 +79,39 @@ export default function App() {
 					<Tab label='Time Series' {...a11yProps(3)} />
 				</Tabs>
 			</AppBar>
-			<TabPanel value={value} index={0}>
+			<TabPanel className='padd' value={value} index={0}>
 				<Dashboard />
 			</TabPanel>
 			<TabPanel value={value} index={1}>
 				<MapsComponent />
 			</TabPanel>
-			<TabPanel value={value} index={2}>
+			<TabPanel className='padd' value={value} index={2}>
 				<Bars />
 			</TabPanel>
-			<TabPanel value={value} index={3}>
+			<TabPanel className='padd' value={value} index={3}>
 				<TimeSeries />
 			</TabPanel>
+			<hr />
+			<div className='disclaimer'>
+				<p>
+					Viru Saastrabuddhe (A COVID-19 Data Visualizer) is built using the data from{' '}
+					<a target='blank' href='https://github.com/CSSEGISandData'>
+						John Hopkins CSSE GitHub Repo
+					</a>. It displays interactive visuals and map to provide best available information on the current
+					global issue of COVID-19.
+				</p>
+				<p>
+					As stated in the mentioned repo's Terms of Use, the data is provided to the public strictly for
+					educational and academic research purposes. The data comes from multiple publicly available sources,
+					that do not always agree.
+				</p>
+				<p>This App is strictly for the purpose of information and education and not for commercial use.</p>
+				<p>
+					<a target='blank' href='https://phil.cdc.gov/Details.aspx?pid=23312'>
+						Coronavirus Image Source{' '}
+					</a>- CDC/ Alissa Eckert, MS; Dan Higgins, MAM
+				</p>
+			</div>
 		</div>
 	);
 }
