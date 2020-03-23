@@ -92,6 +92,11 @@ const getConfig = (data) => ({
 export default class TimeSeries extends React.Component {
 	constructor(props) {
 		super(props);
+		Highcharts.setOptions({
+			lang: {
+				thousandsSep: ','
+			}
+		});
 		this.allowChartUpdate = true;
 		this.state = {
 			country: { value: 'China', label: 'China' },
@@ -107,8 +112,6 @@ export default class TimeSeries extends React.Component {
 
 		this.createChart = this.createChart.bind(this);
 		this.updateCountry = this.updateCountry.bind(this);
-		//this.renderChart = this.renderChart.bind(this);
-		//this.renderLegends = this.renderLegends.bind(this);
 	}
 
 	async componentDidMount() {

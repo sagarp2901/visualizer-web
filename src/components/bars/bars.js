@@ -38,6 +38,11 @@ const getConfig = (data) => ({
 export default class Bars extends React.Component {
 	constructor(props) {
 		super(props);
+		Highcharts.setOptions({
+			lang: {
+				thousandsSep: ','
+			}
+		});
 		this.allowChartUpdate = true;
 		this.state = {
 			series: [],
