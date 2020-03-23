@@ -111,6 +111,7 @@ export default function App() {
 						Coronavirus Image Source{' '}
 					</a>- CDC/ Alissa Eckert, MS; Dan Higgins, MAM
 				</p>
+				<p>Copyright (c) 2020 Sagar Patel</p>
 			</div>
 		</div>
 	);
