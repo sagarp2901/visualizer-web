@@ -182,7 +182,7 @@ export const formatByCountry = (dataArr) => {
 };
 
 export const formatSeries = (formatted) => {
-	const limit = 10;
+	const limit = 15;
 	let confirmed = [];
 	let recovered = [];
 	let deceased = [];
