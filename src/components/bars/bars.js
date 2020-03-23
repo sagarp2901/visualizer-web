@@ -11,7 +11,7 @@ const getConfig = (data) => ({
 		height: '100%'
 	},
 	title: {
-		text: 'Top 10 Affected Countries'
+		text: 'Top 15 Affected Countries'
 	},
 	xAxis: {
 		categories: data.countries
@@ -20,7 +20,7 @@ const getConfig = (data) => ({
 		reversed: false
 	},
 	plotOptions: {
-		series: {
+		bar: {
 			dataLabels: {
 				enabled: true
 			},

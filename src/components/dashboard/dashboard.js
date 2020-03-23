@@ -122,7 +122,9 @@ export default class Dashboard extends React.Component {
 					{this.state.count.map((item, index) => (
 						<Card key={index} className='tile'>
 							<div>{item.name}</div>
-							<div className={item.class}>{item.value.toLocaleString() || 'Data is updating...'}</div>
+							<div className={item.class}>
+								{new Intl.NumberFormat('en-US').format(item.value) || 'Data is updating...'}
+							</div>
 						</Card>
 					))}
 				</div>

@@ -120,9 +120,13 @@ class CustomMarker extends Component {
 				{showInfoWindow && (
 					<InfoWindow>
 						<div className='markerContainer'>
-							<div className='yellow'>Confirmed: {marker.confirmed.toLocaleString()}</div>
-							<div className='green'>Recovered: {marker.recovered.toLocaleString()}</div>
-							<div className='red'>Deceased: {marker.dead.toLocaleString()}</div>
+							<div className='yellow'>
+								Confirmed: {new Intl.NumberFormat('en-US').format(marker.confirmed)}
+							</div>
+							<div className='green'>
+								Recovered: {new Intl.NumberFormat('en-US').format(marker.recovered)}
+							</div>
+							<div className='red'>Deceased: {new Intl.NumberFormat('en-US').format(marker.dead)}</div>
 						</div>
 					</InfoWindow>
 				)}

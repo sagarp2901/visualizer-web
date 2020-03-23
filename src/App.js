@@ -6,11 +6,13 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
+import Toolbar from '@material-ui/core/Toolbar';
 import Box from '@material-ui/core/Box';
 import Bars from './components/bars/bars';
 import Dashboard from './components/dashboard/dashboard';
 import MapsComponent from './components/map/map';
 import TimeSeries from './components/timeSeries/timeSeries';
+import './App.css';
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -57,13 +59,23 @@ export default function App() {
 		setValue(newValue);
 	};
 
+	const imageUrl = require('./assets/images/rsz_covid.png');
+
 	return (
 		<div className={classes.root}>
+			<AppBar position='static' color='primary'>
+				<Toolbar>
+					<img className='image-container' src={imageUrl} />
+					<Typography variant='h6' className={classes.title}>
+						Viru Saastrabuddhe - COVID-19 Data Visualizer
+					</Typography>
+				</Toolbar>
+			</AppBar>
 			<AppBar position='static' color='default'>
 				<Tabs centered value={value} onChange={handleChange} indicatorColor='primary' textColor='primary'>
 					<Tab label='Dashboard' {...a11yProps(0)} />
 					<Tab label='Heat Map' {...a11yProps(1)} />
-					<Tab label='Top 10' {...a11yProps(2)} />
+					<Tab label='Top 15' {...a11yProps(2)} />
 					<Tab label='Time Series' {...a11yProps(3)} />
 				</Tabs>
 			</AppBar>
