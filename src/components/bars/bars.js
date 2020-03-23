@@ -8,7 +8,7 @@ import './bars.scss';
 const getConfig = (data) => ({
 	chart: {
 		type: 'bar',
-		height: '100%'
+		height: '200%'
 	},
 	title: {
 		text: 'Top 10 Affected Countries'
@@ -23,7 +23,8 @@ const getConfig = (data) => ({
 		series: {
 			dataLabels: {
 				enabled: true
-			}
+			},
+			groupPadding: 0.2
 		}
 	},
 	series: data.series,
@@ -70,7 +71,9 @@ export default class Bars extends React.Component {
 		return (
 			<div className='card'>
 				<HighchartsReact
-					containerProps={{ style: { minWidth: '375px', width: '100%' } }}
+					containerProps={{
+						style: { minWidth: '375px', width: '100%', height: '100vh', overflowY: 'scroll' }
+					}}
 					highcharts={Highcharts}
 					options={chartConfig}
 				/>

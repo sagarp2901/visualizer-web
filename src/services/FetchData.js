@@ -182,6 +182,7 @@ export const formatByCountry = (dataArr) => {
 };
 
 export const formatSeries = (formatted) => {
+	const limit = 10;
 	let confirmed = [];
 	let recovered = [];
 	let deceased = [];
@@ -194,7 +195,7 @@ export const formatSeries = (formatted) => {
 		.map((item) => {
 			return item.country;
 		})
-		.slice(0, 10);
+		.slice(0, limit);
 	formatted.forEach((item) => {
 		confirmed.push(item.confirmed);
 		recovered.push(item.recovered);
@@ -202,9 +203,9 @@ export const formatSeries = (formatted) => {
 	});
 	let series = [];
 	// Get top 10 countries data for chart
-	series.push({ name: 'Confirmed', data: confirmed.slice(0, 10), color: '#F9D93E' });
-	series.push({ name: 'Recovered', data: recovered.slice(0, 10), color: '#4caf50' });
-	series.push({ name: 'Deceased', data: deceased.slice(0, 10), color: '#e53935' });
+	series.push({ name: 'Confirmed', data: confirmed.slice(0, limit), color: '#F9D93E' });
+	series.push({ name: 'Recovered', data: recovered.slice(0, limit), color: '#4caf50' });
+	series.push({ name: 'Deceased', data: deceased.slice(0, limit), color: '#e53935' });
 	return { series: series, countries: countries };
 };
 

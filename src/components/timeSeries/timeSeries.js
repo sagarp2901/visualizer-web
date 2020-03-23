@@ -19,7 +19,8 @@ const getConfig = (data) => ({
 		type: 'spline'
 	},
 	yAxis: {
-		title: { text: 'Total Count' }
+		title: { text: 'Total Count' },
+		opposite: false
 	},
 	xAxis: {
 		categories: data.xAxis,
@@ -79,7 +80,6 @@ const getConfig = (data) => ({
 			}
 		]
 	},
-
 	series: [ data.confirmedSeries, data.deadSeries, data.recoveredSeries ],
 	credits: {
 		enabled: false
