@@ -6,6 +6,10 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+div[class^="MuiBox-root"] {
+	padding: 0 !important;
+}
+
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }

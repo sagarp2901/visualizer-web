@@ -1,9 +1,8 @@
 .dashboard-container {
-	display: grid;
+	display: flex;
 	justify-items: center;
 
 	.tiles {
-		display: grid;
 		justify-content: center;
 		justify-items: center;
 		align-items: center;
@@ -17,7 +16,6 @@
 			justify-items: center;
 			min-height: 100px;
 			margin-bottom: 20px;
-			padding: 10px;
 		}
 		.tile:last-child {
 			margin-bottom: 0;

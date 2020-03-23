@@ -113,7 +113,7 @@ export default class Dashboard extends React.Component {
 				<div className='tiles'>
 					<Card className='tile'>
 						<HighchartsReact
-							containerProps={{ style: { minWidth: '375px', width: '90vw' } }}
+							containerProps={{ style: { minWidth: '375px', width: '100%' } }}
 							highcharts={Highcharts}
 							options={chartConfig}
 						/>

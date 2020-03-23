@@ -43,7 +43,8 @@ function a11yProps(index) {
 
 const useStyles = makeStyles((theme) => ({
 	root: {
-		backgroundColor: '#e0e0e0'
+		backgroundColor: '#e0e0e0',
+		padding: '0'
 	}
 }));
 
@@ -56,10 +57,6 @@ export default function App() {
 		setValue(newValue);
 	};
 
-	const handleChangeIndex = (index) => {
-		setValue(index);
-	};
-
 	return (
 		<div className={classes.root}>
 			<AppBar position='static' color='default'>
@@ -70,23 +67,18 @@ export default function App() {
 					<Tab label='Time Series' {...a11yProps(3)} />
 				</Tabs>
 			</AppBar>
-			<SwipeableViews
-				axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-				index={value}
-				onChangeIndex={handleChangeIndex}>
-				<TabPanel value={value} index={0} dir={theme.direction}>
-					<Dashboard />
-				</TabPanel>
-				<TabPanel value={value} index={1} dir={theme.direction}>
-					<MapsComponent />
-				</TabPanel>
-				<TabPanel value={value} index={2} dir={theme.direction}>
-					<Bars />
-				</TabPanel>
-				<TabPanel value={value} index={3} dir={theme.direction}>
-					<TimeSeries />
-				</TabPanel>
-			</SwipeableViews>
+			<TabPanel value={value} index={0}>
+				<Dashboard />
+			</TabPanel>
+			<TabPanel value={value} index={1}>
+				<MapsComponent />
+			</TabPanel>
+			<TabPanel value={value} index={2}>
+				<Bars />
+			</TabPanel>
+			<TabPanel value={value} index={3}>
+				<TimeSeries />
+			</TabPanel>
 		</div>
 	);
 }

@@ -19,8 +19,7 @@ const getConfig = (data) => ({
 		type: 'spline'
 	},
 	yAxis: {
-		title: { text: 'Total Count' },
-		opposite: false
+		title: { text: 'Total Count' }
 	},
 	xAxis: {
 		categories: data.xAxis,

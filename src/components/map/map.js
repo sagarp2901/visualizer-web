@@ -96,7 +96,7 @@ class CustomMarker extends Component {
 			this.setState({
 				showInfoWindow: !this.state.showInfoWindow
 			});
-		}, 200);
+		}, 1000);
 	};
 	handleMouseOver = (e) => {
 		this.setState({

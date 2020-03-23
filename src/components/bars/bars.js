@@ -3,7 +3,7 @@ import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import { getDailyReport, formatByCountry, formatSeries } from '../../services/FetchData';
 import { readString } from 'react-papaparse';
-import Card from '@material-ui/core/Card';
+import './bars.scss';
 
 const getConfig = (data) => ({
 	chart: {
@@ -68,13 +68,13 @@ export default class Bars extends React.Component {
 		const { series, countries } = this.state;
 		const chartConfig = getConfig({ series, countries });
 		return (
-			<Card style={{ padding: '10px' }}>
+			<div className='card'>
 				<HighchartsReact
-					containerProps={{ style: { minWidth: '375px', width: '90vw' } }}
+					containerProps={{ style: { minWidth: '375px', width: '100%' } }}
 					highcharts={Highcharts}
 					options={chartConfig}
 				/>
-			</Card>
+			</div>
 		);
 	}
 }
