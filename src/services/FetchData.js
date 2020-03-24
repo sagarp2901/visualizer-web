@@ -1,9 +1,9 @@
 export const getCases = (type) => {
 	const URLS = {
 		CONFIRMED:
-			'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv',
+			'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv',
 		DEATHS:
-			'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Deaths.csv',
+			'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv',
 		RECOVERED:
 			'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Recovered.csv'
 	};
@@ -23,7 +23,7 @@ export const getDailyReport = (useTodayDate) => {
 export const formatMarkers = (data) => {
 	const result = data.map((item) => {
 		return {
-			title: `${item['Province/State']} - ${item['Country/Region']}`,
+			title: `${item['Province/State']} - ${item['Country_Region']}`,
 			coordinates: {
 				latitude: parseFloat(item['Lat']),
 				longitude: parseFloat(item['Long'])
@@ -34,13 +34,14 @@ export const formatMarkers = (data) => {
 };
 
 export const formatDailyMarkers = (data) => {
+	//console.log(data);
 	const result = data.map((item) => {
 		return {
-			country: item['Country/Region'],
+			country: item['Country_Region'],
 			region: item['Province/State'],
 			coordinates: {
-				latitude: parseFloat(item['Latitude']) || 0,
-				longitude: parseFloat(item['Longitude']) || 0
+				latitude: parseFloat(item['Lat']) || 0,
+				longitude: parseFloat(item['Long_']) || 0
 			},
 			confirmed: item['Confirmed'],
 			dead: item['Deaths'],
@@ -117,7 +118,7 @@ export const formatChartSingleSeries = (arr) => {
 };
 
 export const formatArraySeries = (arr) => {
-	const name = arr[0]['Country/Region'];
+	const name = arr[0]['Country_Region'];
 	const arrValues = removeProperties(arr);
 	let keys = Object.keys(arrValues[0]);
 	let seriesData = [];
@@ -147,7 +148,7 @@ export const getCountries = () => {
 export const formatByCountry = (dataArr) => {
 	let data = dataArr.map((item) => {
 		return {
-			country: item['Country/Region'],
+			country: item['Country_Region'],
 			confirmed: parseInt(item['Confirmed']) || 0,
 			dead: parseInt(item['Deaths']) || 0,
 			recovered: parseInt(item['Recovered']) || 0

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SwipeableViews from 'react-swipeable-views';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -52,7 +51,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function App() {
 	const classes = useStyles();
-	const theme = useTheme();
 	const [ value, setValue ] = React.useState(0);
 
 	const handleChange = (event, newValue) => {
@@ -65,7 +63,7 @@ export default function App() {
 		<div className={classes.root}>
 			<AppBar position='static' color='primary'>
 				<Toolbar>
-					<img className='image-container' src={imageUrl} />
+					<img className='image-container' src={imageUrl} alt='Covid Icon' />
 					<Typography variant='h6' className={classes.title}>
 						Viru Saastrabuddhe - COVID-19 Data Visualizer
 					</Typography>

@@ -40,27 +40,6 @@ export default class MapsComponent extends React.PureComponent {
 		};
 	}
 
-	/* onClick = (e) => {
-		this.setState({
-			showInfoWindow: !this.state.showInfoWindow
-		});
-		setTimeout(() => {
-			this.setState({
-				showInfoWindow: !this.state.showInfoWindow
-			});
-		}, 200);
-	};
-	handleMouseOver = (e) => {
-		this.setState({
-			showInfoWindow: true
-		});
-	};
-	handleMouseExit = (e) => {
-		this.setState({
-			showInfoWindow: false
-		});
-	}; */
-
 	async componentDidMount() {
 		try {
 			// Get map data
@@ -68,7 +47,7 @@ export default class MapsComponent extends React.PureComponent {
 			const dataJson = await readString(jsonResponse, { header: true });
 			if (dataJson && dataJson.data) {
 				this.setState({ markers: formatDailyMarkers(dataJson.data) });
-				console.log(this.state.markers);
+				//console.log(this.state.markers);
 			}
 		} catch (e) {
 			console.warn(e);
