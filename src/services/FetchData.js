@@ -155,7 +155,7 @@ export const formatByCountry = (dataArr) => {
 		};
 	});
 	// Dynamically getting countries from data
-	let countries = formatDropdownCountries(dataArr);
+	let countries = formatedCountries(data);
 
 	let dataByCountries = [];
 	countries.forEach((country) => {
@@ -390,6 +390,19 @@ export const formatDropdownCountries = (data) => {
 	let countries = [];
 	data.forEach((item) => {
 		countries.push(item['Country/Region']);
+	});
+	let uniqueCountries = [];
+	countries.forEach((item) => {
+		if (item && uniqueCountries.indexOf(item) < 0) uniqueCountries.push(item);
+	});
+	uniqueCountries.sort();
+	return uniqueCountries;
+};
+
+export const formatedCountries = (data) => {
+	let countries = [];
+	data.forEach((item) => {
+		countries.push(item.country);
 	});
 	let uniqueCountries = [];
 	countries.forEach((item) => {
