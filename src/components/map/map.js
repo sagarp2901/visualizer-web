@@ -47,7 +47,6 @@ export default class MapsComponent extends React.PureComponent {
 			const dataJson = await readString(jsonResponse, { header: true });
 			if (dataJson && dataJson.data) {
 				this.setState({ markers: formatDailyMarkers(dataJson.data) });
-				//console.log(this.state.markers);
 			}
 		} catch (e) {
 			console.warn(e);
@@ -99,6 +98,7 @@ class CustomMarker extends Component {
 				{showInfoWindow && (
 					<InfoWindow>
 						<div className='markerContainer'>
+							<div className='white'>{marker.place}</div>
 							<div className='yellow'>
 								Confirmed: {new Intl.NumberFormat('en-US').format(marker.confirmed)}
 							</div>
