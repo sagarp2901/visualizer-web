@@ -16,11 +16,13 @@
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
 		"react-dropdown": "^1.7.0",
+		"react-globe": "^4.0.0",
 		"react-google-maps": "^9.4.5",
 		"react-papaparse": "^3.0.0",
 		"react-router-dom": "^5.1.2",
 		"react-scripts": "3.4.0",
-		"react-swipeable-views": "^0.13.9"
+		"react-swipeable-views": "^0.13.9",
+		"three": "^0.115.0"
 	},
 	"scripts": {
 		"start": "react-scripts start",

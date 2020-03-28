@@ -11,6 +11,7 @@ import Bars from './components/bars/bars';
 import Dashboard from './components/dashboard/dashboard';
 import MapsComponent from './components/map/map';
 import TimeSeries from './components/timeSeries/timeSeries';
+import Globe from './components/globe/globe';
 import './App.scss';
 
 function TabPanel(props) {
@@ -81,7 +82,7 @@ export default function App() {
 				<Dashboard />
 			</TabPanel>
 			<TabPanel value={value} index={1}>
-				<MapsComponent />
+				<Globe />
 			</TabPanel>
 			<TabPanel className='padd' value={value} index={2}>
 				<Bars />

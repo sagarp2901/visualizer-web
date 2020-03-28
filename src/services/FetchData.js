@@ -51,6 +51,21 @@ export const formatDailyMarkers = (data) => {
 	return result;
 };
 
+export const formatGlobeMarkers = (data) => {
+	const result = data.map((item) => {
+		return {
+			country: item['Country_Region'],
+			region: item['Province/State'],
+			coordinates: [ parseFloat(item['Lat']) || 0, parseFloat(item['Long_']) || 0 ],
+			value: item['Confirmed'] / 100,
+			confirmed: item['Confirmed'],
+			dead: item['Deaths'],
+			recovered: item['Recovered']
+		};
+	});
+	return result;
+};
+
 export const getYesterdayDate = () => {
 	let date = new Date();
 	date.setDate(date.getDate() - 1);
