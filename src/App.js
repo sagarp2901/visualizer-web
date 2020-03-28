@@ -82,7 +82,7 @@ export default function App() {
 				<Dashboard />
 			</TabPanel>
 			<TabPanel value={value} index={1}>
-				<Globe />
+				<MapsComponent />
 			</TabPanel>
 			<TabPanel className='padd' value={value} index={2}>
 				<Bars />
