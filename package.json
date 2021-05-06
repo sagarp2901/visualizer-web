@@ -10,7 +10,7 @@
 		"@testing-library/user-event": "^7.2.1",
 		"google-map-react": "^1.1.7",
 		"google-maps-react": "^2.0.2",
-		"highcharts": "^8.0.4",
+		"highcharts": "^9.0.0",
 		"highcharts-react-official": "^3.0.0",
 		"node-sass": "^4.13.1",
 		"react": "^16.13.1",
